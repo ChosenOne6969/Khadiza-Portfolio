@@ -51,13 +51,13 @@ button{font:inherit;cursor:pointer;background:0;border:0;color:inherit}
   .cursor-dot,.cursor-ring{
     position:fixed;top:0;left:0;pointer-events:none;z-index:999;
     transform:translate(-50%,-50%);
-    transition:width .25s var(--ease),height .25s var(--ease),opacity .25s var(--ease),background .25s var(--ease);
+    transition:width .45s var(--ease),height .45s var(--ease),opacity .35s var(--ease),background .45s var(--ease),border-color .45s var(--ease);
     will-change:transform;
   }
   .cursor-dot{width:6px;height:6px;background:var(--gold-1);border-radius:50%;box-shadow:0 0 12px rgba(212,168,90,.6)}
-  .cursor-ring{width:32px;height:32px;border:1px solid var(--gold-2);border-radius:50%;opacity:.7}
+  .cursor-ring{width:32px;height:32px;border:1px solid var(--gold-2);border-radius:50%;opacity:.6}
   body.cursor-hover .cursor-dot{width:0;height:0;opacity:0}
-  body.cursor-hover .cursor-ring{width:48px;height:48px;border-color:var(--gold-0);opacity:1;background:rgba(212,168,90,.08)}
+  body.cursor-hover .cursor-ring{width:44px;height:44px;border-color:var(--gold-0);opacity:.9;background:rgba(212,168,90,.06)}
 }
 
 .serif{font-family:var(--serif);font-weight:400;letter-spacing:-.005em}
@@ -570,7 +570,7 @@ section{padding-block:var(--section-pad);position:relative}
   filter:brightness(.9) contrast(1.05);
   transition:filter .5s var(--ease),transform 1.5s var(--ease);
 }
-.art-card:hover .art-image img{filter:brightness(1) contrast(1.1);transform:scale(1.04)}
+.art-card:hover .art-image img{filter:brightness(1) contrast(1.08);transform:scale(1.025)}
 .art-image::after{
   content:"";position:absolute;inset:0;pointer-events:none;
   box-shadow:inset 0 0 0 1px rgba(212,168,90,.1);
@@ -669,7 +669,7 @@ section{padding-block:var(--section-pad);position:relative}
   filter:brightness(.88) contrast(1.05) saturate(.9);
   transition:filter .5s var(--ease),transform 1.5s var(--ease);
 }
-.scrap-card:hover .scrap-card-image img{filter:brightness(1) contrast(1.1) saturate(1);transform:scale(1.04)}
+.scrap-card:hover .scrap-card-image img{filter:brightness(1) contrast(1.06) saturate(1);transform:scale(1.025)}
 .scrap-card-image::after{
   content:"";position:absolute;inset:0;pointer-events:none;
   box-shadow:inset 0 0 0 1px rgba(212,168,90,.1);
@@ -694,59 +694,60 @@ section{padding-block:var(--section-pad);position:relative}
 
 /* SCRAP READER MODAL (the lightbox-style overlay where the prose lives) */
 .scrap-reader{
-  position:fixed;inset:0;z-index:100;background:rgba(6,10,16,.96);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  display:none;animation:fadein .35s var(--ease);
-  overflow-y:auto;padding:clamp(1rem,3vw,3rem);
+  position:fixed;inset:0;z-index:100;background:rgba(6,10,16,.97);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  display:none;animation:fadein .55s var(--ease);
+  overflow-y:auto;padding:clamp(1rem,3vw,4rem);
 }
 .scrap-reader.active{display:block}
 .scrap-reader-inner{
-  max-width:880px;margin:clamp(2rem,5vh,4rem) auto;
-  display:grid;grid-template-columns:1fr;gap:clamp(1.2rem,3vw,2rem);
+  max-width:1040px;margin:clamp(3rem,7vh,5.5rem) auto clamp(4rem,8vh,6rem);
+  display:grid;grid-template-columns:1fr;gap:clamp(2rem,4vw,3rem);
   position:relative;
 }
 @media (min-width:880px){
-  .scrap-reader-inner{grid-template-columns:.85fr 1.15fr;gap:2.5rem;align-items:start}
+  .scrap-reader-inner{grid-template-columns:.9fr 1.1fr;gap:clamp(3rem,5vw,4.5rem);align-items:start}
 }
 .scrap-reader-image{
   background:var(--ink-3);aspect-ratio:3/4;overflow:hidden;position:relative;
   background-size:cover;background-position:center;
-  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  box-shadow:0 40px 100px rgba(0,0,0,.55);
 }
 .scrap-reader-image img{
   width:100%;height:100%;object-fit:cover;display:block;
-  filter:brightness(.95) contrast(1.05);
+  filter:brightness(.92) contrast(1.04);
 }
 .scrap-reader-text{
-  font-family:var(--serif);font-size:clamp(1.05rem,1.7vw,1.18rem);line-height:1.75;
+  font-family:var(--serif);font-size:clamp(1.08rem,1.7vw,1.22rem);line-height:1.95;
   color:var(--bone-1);
+  padding-top:clamp(.5rem,2vw,1.5rem);
 }
 .scrap-reader-text .meta{
-  font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gold-2);margin-bottom:1rem;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gold-2);margin-bottom:1.8rem;
 }
 .scrap-reader-text h2{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:clamp(1.5rem,3vw,2.2rem);color:var(--bone-0);
-  margin:0 0 1.5rem;line-height:1.2;letter-spacing:-.01em;
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.6rem,3.2vw,2.4rem);color:var(--bone-0);
+  margin:0 0 2.4rem;line-height:1.25;letter-spacing:-.012em;
 }
-.scrap-reader-text p{margin:0 0 1.2em;max-width:60ch}
+.scrap-reader-text p{margin:0 0 1.7em;max-width:58ch}
 .scrap-reader-text em{color:var(--gold-0);font-style:italic}
 .scrap-reader-text .end{
-  margin-top:2rem;display:inline-flex;align-items:center;gap:.8rem;
-  font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;
+  margin-top:3rem;display:inline-flex;align-items:center;gap:1rem;
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.28em;
   text-transform:uppercase;color:var(--bone-4);
 }
 .scrap-reader-text .end::before,.scrap-reader-text .end::after{
-  content:"";width:24px;height:1px;background:var(--bone-4);
+  content:"";width:32px;height:1px;background:var(--bone-4);
 }
 .scrap-reader-close{
-  position:fixed;top:1.5rem;right:1.5rem;font-family:var(--mono);font-size:.7rem;
-  letter-spacing:.2em;color:var(--bone-2);text-transform:uppercase;
-  padding:.6rem 1rem;border:1px solid var(--ink-line);
+  position:fixed;top:1.5rem;right:1.5rem;font-family:var(--mono);font-size:.66rem;
+  letter-spacing:.22em;color:var(--bone-2);text-transform:uppercase;
+  padding:.7rem 1.1rem;border:1px solid var(--ink-line);
   background:rgba(10,16,24,.7);backdrop-filter:blur(8px);
   z-index:101;
-  transition:color .25s,border-color .25s;
+  transition:color .35s,border-color .35s,background .35s;
 }
 .scrap-reader-close:hover{color:var(--gold-1);border-color:var(--gold-2)}
 
@@ -789,9 +790,16 @@ section{padding-block:var(--section-pad);position:relative}
 
 /* FOOT */
 .foot{
-  border-top:1px solid var(--ink-line);padding-block:1.5rem;
+  border-top:1px solid var(--ink-line);padding-block:2.5rem 1.5rem;
   font-family:var(--mono);font-size:clamp(.6rem,1.4vw,.7rem);letter-spacing:.14em;
   text-transform:uppercase;color:var(--bone-4);
+}
+.foot-whisper{
+  text-align:center;margin:0 0 2.4rem;
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(.85rem,1.4vw,1rem);letter-spacing:.01em;
+  text-transform:none;color:var(--bone-4);opacity:.55;
+  line-height:1.4;
 }
 .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .foot em{
@@ -800,9 +808,9 @@ section{padding-block:var(--section-pad);position:relative}
 }
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1.4s var(--ease),transform 1.4s var(--ease)}
 .reveal.in{opacity:1;transform:translateY(0)}
-.reveal-stagger>*{opacity:0;transform:translateY(15px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal-stagger>*{opacity:0;transform:translateY(18px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
 .reveal-stagger.in>*{opacity:1;transform:translateY(0)}
 .reveal-stagger.in>*:nth-child(1){transition-delay:.05s}
 .reveal-stagger.in>*:nth-child(2){transition-delay:.12s}
@@ -1602,9 +1610,12 @@ section{padding-block:var(--section-pad);position:relative}
 </section>
 
 <footer class="foot">
-  <div class="wrap foot-row">
-    <span>© <span id="year"></span> · Khadiza Akter</span>
-    <em>Understanding the mind to build the machine.</em>
+  <div class="wrap">
+    <p class="foot-whisper">Some journeys are not meant to arrive anywhere.</p>
+    <div class="foot-row">
+      <span>© <span id="year"></span> · Khadiza Akter</span>
+      <em>Understanding the mind to build the machine.</em>
+    </div>
   </div>
 </footer>
 
